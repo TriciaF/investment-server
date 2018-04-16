@@ -56,6 +56,7 @@ router.put('/invest', jwtAuth, (req, res) => {
 		x: { $in: [year] }
 	})
 		.then(riskData => {
+			console.log('risk data = ', riskData);
 			let growth = riskData[0].gain;
 			newFundAmt =
         currentFund + Math.floor(riskData[0].gain / 100 * currentFund);
