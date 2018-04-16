@@ -29,7 +29,7 @@ router.put('/intro', jwtAuth, (req, res) => {
 //and updates the User database with a new currentFund,
 //initialFund and previousFund
 //sends back the User object to the client
-router.put('/invest', jwtAuth, (req, res) => {
+router.put('/invest', (req, res) => {
 	console.log('enter the post api/risk/invest ', req.body.risk, req.body.year, req.body.currentFund);
 	//validate the fields in the body
 	const requiredFields = ['risk', 'year', 'currentFund'];
@@ -51,6 +51,7 @@ router.put('/invest', jwtAuth, (req, res) => {
 
 	//get the % increase/decrease from the Risk Db. This value
 	//is determined by the year and risk level
+  
 	return Risk.find({
 		risk: { $in: [risk] },
 		x: { $in: [year] }

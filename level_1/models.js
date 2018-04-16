@@ -21,6 +21,6 @@ RiskSchema.methods.serialize = function() {
 	};
 };
 
-const Risk = mongoose.model('Risk', RiskSchema);
+const Risk = mongoose.model('Risk', RiskSchema, 'Risk');
 
 module.exports = {Risk};
